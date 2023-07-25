@@ -1,6 +1,5 @@
 package ru.itmentor.spring.boot_security.demo.util;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.itmentor.spring.boot_security.demo.entity.Role;
 import ru.itmentor.spring.boot_security.demo.entity.User;
@@ -21,7 +20,6 @@ public class DBInit {
     private final UserService userService;
     private final RoleService roleService;
 
-    @Autowired
     public DBInit(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;

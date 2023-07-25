@@ -6,6 +6,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ru.itmentor.spring.boot_security.demo.entity.User;
 
+import java.util.Optional;
+
 /**
  * \* Create by Prekrasnov Sergei
  * \
@@ -13,6 +15,9 @@ import ru.itmentor.spring.boot_security.demo.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    @Query("select u from User u join fetch u.roles where u.username = (:username)")
-    User findUserByUsername(@Param("username") String username);
+
+    @Query("select u from User u join fetch u.roles where u.email=:email")
+    Optional<User> findUserByEmail(@Param("email") String email);
+
+    User findUserById(@Param("id") Integer id);
 }
